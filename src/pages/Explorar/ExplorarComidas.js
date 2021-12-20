@@ -15,27 +15,30 @@ export default function ExplorarComidas() {
       setRandom(randomFood.meals[0]);
     }
     fetchRandomFood();
-    setPageName('Explorar Comidas');
+    setPageName('Explore Foods');
     setShowButton(false);
   }, [setPageName, setShowButton, setRandom]);
 
   return (
     <div>
       <Header />
-      <Link to="/explorar/comidas/ingredientes">
-        <button
-          data-testid="explore-by-ingredient"
-          type="button"
-        >
-          Por Ingredientes
-        </button>
-      </Link>
-      <Link to="/explorar/comidas/area">
-        <button data-testid="explore-by-area" type="button">Por Local de Origem</button>
-      </Link>
-      <Link to={ `/comidas/${random.idMeal}` }>
-        <button data-testid="explore-surprise" type="button">Me Surpreenda!</button>
-      </Link>
+      <div className="perfil-cont">
+        <Link to="/explorar/comidas/ingredientes">
+          <button
+            data-testid="explore-by-ingredient"
+            type="button"
+            className='profileBtn'
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <Link to="/explorar/comidas/area">
+          <button data-testid="explore-by-area" type="button"  className='profileBtn2'>Por Local de Origem</button>
+        </Link>
+        <Link to={ `/comidas/${random.idMeal}` }>
+          <button data-testid="explore-surprise" type="button"  className='profileBtn'>Me Surpreenda!</button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

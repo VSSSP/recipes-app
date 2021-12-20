@@ -24,7 +24,7 @@ export default function DrinkCategories() {
   };
 
   return (
-    <div>
+    <div className="recipeCategories">
       { drinkCategories
         .map(({ strCategory }) => (
           <Button key={ strCategory } strCategory={ strCategory } />)) }

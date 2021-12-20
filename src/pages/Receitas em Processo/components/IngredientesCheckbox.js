@@ -33,8 +33,9 @@ export default function IngredientesCheckbox({ recipeInfo }) {
   }, [id]);
 
   return (
-    <div>
-      <h2>Ingredientes</h2>
+    <div className="ingredientCheckCont">
+    <div className="ingredientCheck">
+      <h2>Ingredients</h2>
       { recipeInfo.strAlcoholic
         ? <p data-testid="recipe-category">{recipeInfo.strAlcoholic}</p>
         : null }
@@ -59,6 +60,7 @@ export default function IngredientesCheckbox({ recipeInfo }) {
           </li>
         )) }
       </ul>
+      </div>
       <FinishBtn checkeds={ checkeds } type={ type } details={ recipeInfo } />
     </div>
   );

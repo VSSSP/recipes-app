@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import MyContext from '../../Context';
 import { getDoneRecipes } from '../../services/helpers/doneRecipes';
 import shareIcon from '../../images/shareIcon.svg';
+import '../../styles/Done.css';
 
 const copy = require('clipboard-copy');
 
@@ -14,7 +15,7 @@ export default function ReceitasFeitas() {
   const [filterRecipes, setFilterRecipes] = useState([]);
 
   useEffect(() => {
-    setPageName('Receitas Feitas');
+    setPageName('Recipes Done');
     setShowButton(false);
   }, [setPageName, setShowButton]);
 
@@ -41,8 +42,9 @@ export default function ReceitasFeitas() {
 
   const renderRecipes = () => (
     filterRecipes.map((recipe, index) => (
-      <div key={ index }>
-        <Link to={ `/${recipe.type}s/${recipe.id}` }>
+      <div className='doneCont'>
+      <div key={ index } className='doneCard'>
+        <Link to={ `/${recipe.type}s/${recipe.id}` } className="imgDiv">
           <img
             src={ recipe.image }
             alt={ `Imagem de ${recipe.name}` }
@@ -50,66 +52,74 @@ export default function ReceitasFeitas() {
             width="150px"
           />
         </Link>
-        <p
-          data-testid={ `${index}-horizontal-top-text` }
-        >
-          {`${recipe.type === 'comida' ? `${recipe.area} - ` : ''} ${recipe.category}`}
-          {' '}
-          {`${recipe.type === 'bebida' ? recipe.alcoholicOrNot : ''}`}
-        </p>
-        <Link to={ `/${recipe.type}s/${recipe.id}` }>
-          <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
-        </Link>
-        <p
-          data-testid={ `${index}-horizontal-done-date` }
-        >
-          {recipe.doneDate.split('T')[0]}
-        </p>
-        <button
-          type="button"
-          data-testid={ `${index}-horizontal-share-btn` }
-          src={ shareIcon }
-          onClick={ () => handleCopy(recipe.type, recipe.id) }
-        >
-          <img src={ shareIcon } alt="" />
-        </button>
-        { copied ? <p>Link copiado!</p> : null }
-        <span>
-          Tags:
-          { recipe.tags.map((tag, i) => (
-            <p key={ i } data-testid={ `${index}-${tag}-horizontal-tag` }>{tag}</p>)) }
-        </span>
-        { recipe.type === 'comida' ? <p>{ recipe.area }</p> : null }
+        <div className="favText">
+          <p
+            data-testid={ `${index}-horizontal-top-text` } className="hori"
+          >
+            {`${recipe.type === 'comida' ? `${recipe.area} - ` : ''} ${recipe.category}`}
+            {' '}
+            {`${recipe.type === 'bebida' ? recipe.alcoholicOrNot : ''}`}
+          </p>
+          <div className='doneNameBtn'>
+          <Link to={ `/${recipe.type}s/${recipe.id}` }>
+            <p data-testid={ `${index}-horizontal-name` } className="recipeName">{recipe.name}</p>
+          </Link>
+          <button
+            type="button"
+            data-testid={ `${index}-horizontal-share-btn` }
+            src={ shareIcon }
+            onClick={ () => handleCopy(recipe.type, recipe.id) }
+            className= "shareBtn"
+          >
+            <img src={ shareIcon } alt="" />
+          </button>
+          </div>
+          <p
+            data-testid={ `${index}-horizontal-done-date` }
+          >
+            {recipe.doneDate.split('T')[0]}
+          </p>
+          { copied ? <p>Link copiado!</p> : null }
+          <span className='racipeTag'>
+            Tags:
+            { recipe.tags.map((tag, i) => (
+              <p key={ i } data-testid={ `${index}-${tag}-horizontal-tag` }>{tag}</p>)) }
+          </span>
+          { recipe.type === 'comida' ? <p>{ recipe.area }</p> : null }
+        </div>
+      </div>
       </div>
     )));
 
   return (
     <div>
       <Header />
-      <button
-        type="button"
-        data-testid="filter-by-all-btn"
-        name="all"
-        onClick={ handleClick }
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-food-btn"
-        name="comida"
-        onClick={ handleClick }
-      >
-        Food
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-drink-btn"
-        name="bebida"
-        onClick={ handleClick }
-      >
-        Drink
-      </button>
+      <nav className="recipeCategories">
+        <button
+          type="button"
+          data-testid="filter-by-all-btn"
+          name="all"
+          onClick={ handleClick }
+        >
+          All
+        </button>
+        <button
+          type="button"
+          data-testid="filter-by-food-btn"
+          name="comida"
+          onClick={ handleClick }
+        >
+          Food
+        </button>
+        <button
+          type="button"
+          data-testid="filter-by-drink-btn"
+          name="bebida"
+          onClick={ handleClick }
+        >
+          Drink
+        </button>
+      </nav>
       { renderRecipes() }
     </div>
   );

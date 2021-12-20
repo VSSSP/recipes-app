@@ -13,7 +13,7 @@ export default function ExplorarIngredientesBebidas() {
   const [ingredientList, setIngredientList] = useState([]);
 
   useEffect(() => {
-    setPageName('Explorar Ingredientes');
+    setPageName('Explore Ingredients');
     setShowButton(false);
   }, [setPageName, setShowButton]);
 
@@ -49,18 +49,20 @@ export default function ExplorarIngredientesBebidas() {
               await fetchMealsByIngredient(strIngredient1);
             } }
             to="/bebidas"
+            key={ strIngredient1 }
+            data-testid={ `${index}-ingredient-card` }
+            className="recipeCards"
           >
-            <div
-              key={ strIngredient1 }
-              data-testid={ `${index}-ingredient-card` }
-            >
-              <p data-testid={ `${index}-card-name` }>{ strIngredient1 }</p>
+            <div className="imgCont">
               <img
                 data-testid={ `${index}-card-img` }
                 src={ `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}-Small.png` }
                 alt={ strIngredient1 }
                 width="150px"
               />
+            </div>
+            <div className="infoCont">
+              <p data-testid={ `${index}-card-name` }>{ strIngredient1 }</p>
             </div>
           </Link>
         );
@@ -72,7 +74,9 @@ export default function ExplorarIngredientesBebidas() {
   return (
     <div>
       <Header />
-      {renderIngredientList()}
+      <div className="recipeCardsDiv">
+        {renderIngredientList()}
+      </div>
       <Footer />
     </div>
   );

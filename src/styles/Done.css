@@ -1,0 +1,55 @@
+body {
+  color: white;
+}
+
+.doneCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.doneNameBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.doneCard {
+  display: flex;
+  width: 90vw;
+  margin: 10px 0 ;
+  background-color: #E9730F;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.doneText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.recipeName {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.racipeTag {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.imgDiv {
+  border-right: 1px solid black;
+}
+
+.imgDiv img {
+  border-radius: 20px 0 0 20px;
+}

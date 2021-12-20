@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+}
+
+.header {
+  background-color: rgb(255, 102, 42);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5px;
+  color: white;
+}
+
+.headerImg {
+  align-content: center;
+  display: flex;
+  width: 40px;
+  filter: invert(98%) sepia(13%) saturate(512%) hue-rotate(144deg) brightness(108%) contrast(97%);
+}
+
+.explore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.im {
+  filter: invert(98%) sepia(13%) saturate(512%) hue-rotate(144deg) brightness(108%) contrast(97%);
+}

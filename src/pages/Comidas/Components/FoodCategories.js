@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { getFoodCategories, getMealName } from '../../../services/API';
 import Button from './Button';
 import MyContext from '../../../Context';
+import '../../../styles/RecipeCategories.css';
 
 export default function FoodCategories() {
   const [foodCategories, setFoodCategories] = useState([]);
@@ -24,7 +25,7 @@ export default function FoodCategories() {
   };
 
   return (
-    <div>
+    <div className="recipeCategories">
       { foodCategories.map(({ strCategory }) => (
         <Button key={ strCategory } strCategory={ strCategory } />)) }
       <button

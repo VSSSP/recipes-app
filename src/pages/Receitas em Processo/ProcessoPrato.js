@@ -29,25 +29,33 @@ export default function Prato(props) {
   };
 
   return (
-    <div>
+    <div className="recipeCont">
       <img
         src={ comidaDetalhe.strMealThumb }
         width="150px"
         alt="Foto da receita pronta"
         data-testid="recipe-photo"
+        className='recipeImg'
       />
-      <h1 data-testid="recipe-title">{comidaDetalhe.strMeal}</h1>
-      <p data-testid="recipe-category">{comidaDetalhe.strCategory}</p>
-      <button type="button" onClick={ handleClick }>
-        <img src={ shareIcon } alt="" data-testid="share-btn" />
-      </button>
-      {copiado && <p>Link copiado!</p>}
-      <FavoriteButton
-        detail={ comidaDetalhe }
-        type="comida"
-      />
-      <IngredientesCheckbox recipeInfo={ comidaDetalhe } />
-      <p data-testid="instructions">{comidaDetalhe.strInstructions}</p>
+      <div className='recipeHeader'>
+        <h1 data-testid="recipe-title">{comidaDetalhe.strMeal}</h1>
+        <p data-testid="recipe-category">{comidaDetalhe.strCategory}</p>
+      
+        <button type="button" onClick={ handleClick }
+        className='shareBtn'>
+          <img src={ shareIcon } alt="" data-testid="share-btn" />
+        </button>
+        {copiado && <p>Link copiado!</p>} 
+        <FavoriteButton
+          detail={ comidaDetalhe }
+          type="comida"
+        />
+      </div>
+      <div className="ingredientCont">
+        <IngredientesCheckbox recipeInfo={ comidaDetalhe } />
+        <h2>Instructions</h2>
+        <p data-testid="instructions">{comidaDetalhe.strInstructions}</p>
+      </div>
     </div>
   );
 }

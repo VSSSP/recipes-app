@@ -29,25 +29,31 @@ export default function Drink(props) {
   };
 
   return (
-    <div>
+    <div className="recipeCont">
       <img
         src={ drinkDetalhe.strDrinkThumb }
         width="150px"
         alt="Foto da receita pronta"
         data-testid="recipe-photo"
+        className='recipeImg'
       />
-      <h1 data-testid="recipe-title">{drinkDetalhe.strDrink}</h1>
-      <p data-testid="recipe-category">{drinkDetalhe.strCategory}</p>
-      <button type="button" onClick={ handleClick }>
-        <img src={ shareIcon } alt="" data-testid="share-btn" />
-      </button>
-      {copiado && <p>Link copiado!</p>}
-      <FavoriteButton
-        detail={ drinkDetalhe }
-        type="bebida"
-      />
-      <IngredientesCheckbox recipeInfo={ drinkDetalhe } />
-      <p data-testid="instructions">{drinkDetalhe.strInstructions}</p>
+      <div className='recipeHeader'>
+        <h1 data-testid="recipe-title">{drinkDetalhe.strDrink}</h1>
+        <p data-testid="recipe-category">{drinkDetalhe.strCategory}</p>
+        <button type="button" onClick={ handleClick }
+        className='shareBtn'>
+          <img src={ shareIcon } alt="" data-testid="share-btn" />
+        </button>
+        {copiado && <p>Link copiado!</p>}
+        <FavoriteButton
+          detail={ drinkDetalhe }
+          type="bebida"
+        />
+      </div>
+      <div className="ingredientCont">
+        <IngredientesCheckbox recipeInfo={ drinkDetalhe } />
+        <p data-testid="instructions">{drinkDetalhe.strInstructions}</p>
+      </div>
     </div>
   );
 }

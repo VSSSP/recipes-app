@@ -21,6 +21,7 @@ export default function FavButton2({ detail, type, setClick, click, index }) {
           clickFav2(type, detail, setIsFavorite);
           setClick(!click);
         } }
+        className='favBtn'
       >
         <img
           src={ isFavorite ? blackHeart : whiteHeart }

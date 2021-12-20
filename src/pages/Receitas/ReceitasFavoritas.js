@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import RenderFavorites from './Components/renderFavorites';
 import MyContext from '../../Context';
 import { getFavoriteRecipes } from '../../services/helpers/getFavorites';
 import shareIcon from '../../images/shareIcon.svg';
 import FavButton2 from './Components/FavButton2';
-
-const copy = require('clipboard-copy');
+import '../../styles/Favorites.css'
 
 export default function ReceitasFavoritas() {
   const { setPageName, setShowButton } = useContext(MyContext);
   const [recipes, setRecipes] = useState([]);
+  const [click, setClick] = useState(false);
   const [filterRecipes, setFilterRecipes] = useState([]);
   const [copied, setCopied] = useState(false);
-  const [click, setClick] = useState(false);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    setPageName('Receitas Favoritas');
+    setPageName('Favorite Recipes');
     setShowButton(false);
   }, [setPageName, setShowButton]);
 
@@ -35,47 +35,9 @@ export default function ReceitasFavoritas() {
     }
   }, [filter, recipes]);
 
-  const handleCopy = (type, id) => {
-    copy(`http://localhost:3000/${type}s/${id}`);
-    setCopied(true);
-  };
-
-  const renderFavorites = () => (
-    filterRecipes.map((recipe, index) => (
-      <div key={ index }>
-        <Link to={ `/${recipe.type}s/${recipe.id}` }>
-          <img
-            src={ recipe.image }
-            alt={ recipe.title }
-            data-testid={ `${index}-horizontal-image` }
-            width="300px"
-          />
-        </Link>
-        <h3 data-testid={ `${index}-horizontal-top-text` }>
-          {recipe.type === 'comida' ? `${recipe.area} - ` : ''}
-          {recipe.type === 'bebida' ? `${recipe.alcoholicOrNot} - ` : ''}
-          {recipe.category}
-        </h3>
-        <Link to={ `/${recipe.type}s/${recipe.id}` }>
-          <h3 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h3>
-        </Link>
-        <button
-          type="button"
-          data-testid={ `${index}-horizontal-share-btn` }
-          src={ shareIcon }
-          onClick={ () => handleCopy(recipe.type, recipe.id) }
-        >
-          <img src={ shareIcon } alt="" />
-        </button>
-        {copied && 'Link copiado!'}
-        <FavButton2
-          detail={ recipe }
-          type={ recipe.type }
-          setClick={ setClick }
-          click={ click }
-          index={ index }
-        />
-      </div>
+  const render = () => (
+    filterRecipes.map((recipe,index) => (
+      <RenderFavorites recipe={recipe} index={index} click={click} setClick={setClick} />
     ))
   );
 
@@ -83,7 +45,7 @@ export default function ReceitasFavoritas() {
     <div>
       <Header />
       <div>
-        <nav>
+        <nav className="recipeCategories">
           <button
             type="button"
             data-testid="filter-by-all-btn"
@@ -107,7 +69,9 @@ export default function ReceitasFavoritas() {
             Drink
           </button>
         </nav>
-        {!recipes || recipes === [] ? 'Nao tem receitas favoritas' : renderFavorites()}
+        <div className="favCont">
+        {!recipes || recipes === [] ? 'Nao tem receitas favoritas' : render()}
+        </div>
       </div>
     </div>
   );

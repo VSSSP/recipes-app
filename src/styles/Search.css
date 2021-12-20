@@ -1,0 +1,17 @@
+.search {
+  background-color: rgb(255, 127, 76);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.search > input {
+  border: transparent;
+  border-radius: 5px;
+}
+
+.search > div > button {
+  border: transparent;
+  border-radius: 5px;
+}

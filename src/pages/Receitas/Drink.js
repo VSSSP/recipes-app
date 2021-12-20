@@ -28,25 +28,34 @@ export default function Drink(props) {
   };
 
   return (
-    <div>
+    <div className="recipeCont">
       <img
         src={ drinkDetalhe.strDrinkThumb }
         width="150px"
         alt="Foto da receita pronta"
         data-testid="recipe-photo"
+        className='recipeImg'
       />
-      <h1 data-testid="recipe-title">{drinkDetalhe.strDrink}</h1>
-      <p data-testid="recipe-category">{drinkDetalhe.strCategory}</p>
-      <button type="button" onClick={ handleClick }>
-        <img src={ shareIcon } alt="" data-testid="share-btn" />
-      </button>
-      {copiado && <p>Link copiado!</p>}
-      <FavoriteButton
-        detail={ drinkDetalhe }
-        type="bebida"
-      />
-      <Ingredientes recipeInfo={ drinkDetalhe } />
-      <p data-testid="instructions">{drinkDetalhe.strInstructions}</p>
+      <div className='recipeHeader'>
+        <h1 data-testid="recipe-title">{drinkDetalhe.strDrink}</h1>
+        <p data-testid="recipe-category">{drinkDetalhe.strCategory}</p>
+        <div className="shareLikeBtnCont">
+          <button type="button" onClick={ handleClick }
+          className='shareBtn'>
+            <img src={ shareIcon } alt="" data-testid="share-btn" />
+          </button>
+          {copiado && <p>Link copiado!</p>}
+          <FavoriteButton
+            detail={ drinkDetalhe }
+            type="bebida"
+          />
+        </div>
+      </div>
+      <div className="ingredientCont">
+        <Ingredientes recipeInfo={ drinkDetalhe } />
+        <h2>Instructions</h2>
+        <p data-testid="instructions">{drinkDetalhe.strInstructions}</p>
+      </div>
       <div className="wrapper">
         <ComidasRecomendadas />
       </div>

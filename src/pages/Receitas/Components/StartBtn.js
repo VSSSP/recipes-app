@@ -40,7 +40,7 @@ export default function StartBtn(props) {
         style={ doneRecipe ? { display: 'none' } : { display: 'block' } }
         onClick={ () => handleClick(verificar, caminho, id) }
       >
-        {verificar ? 'Continuar Receita' : 'Começar Receita'}
+        {verificar ? 'Continue Recipe' : 'Start Recipe'}
       </button>
     </Link>
   );

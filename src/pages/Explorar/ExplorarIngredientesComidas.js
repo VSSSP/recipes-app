@@ -13,7 +13,7 @@ export default function ExplorarIngredientesComidas() {
   const [ingredientList, setIngredientList] = useState([]);
 
   useEffect(() => {
-    setPageName('Explorar Ingredientes');
+    setPageName('Explore Ingredients');
     setShowButton(false);
   }, [setPageName, setShowButton]);
 
@@ -51,18 +51,20 @@ export default function ExplorarIngredientesComidas() {
               await fetchMealsByIngredient(strIngredient);
             } }
             to="/comidas"
+            className="recipeCards"
+            key={ idIngredient }
+            data-testid={ `${index}-ingredient-card` }
           >
-            <div
-              key={ idIngredient }
-              data-testid={ `${index}-ingredient-card` }
-            >
-              <p data-testid={ `${index}-card-name` }>{ strIngredient }</p>
+            <div className="imgCont">
               <img
                 data-testid={ `${index}-card-img` }
                 src={ `https://www.themealdb.com/images/ingredients/${strIngredient}-Small.png` }
                 alt={ strIngredient }
                 width="150px"
               />
+            </div>
+            <div className="infoCont">
+              <p data-testid={ `${index}-card-name` }>{ strIngredient }</p>
             </div>
           </Link>
         );
@@ -74,7 +76,9 @@ export default function ExplorarIngredientesComidas() {
   return (
     <div>
       <Header />
-      { renderIngredientList() }
+      <div className="recipeCardsDiv">
+        { renderIngredientList() }
+      </div>
       <Footer />
     </div>
   );

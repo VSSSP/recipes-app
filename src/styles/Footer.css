@@ -1,0 +1,15 @@
+.footer {
+  align-content: space-around;
+  background-color: rgb(255, 102, 42);
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  position: fixed;
+  width: 100vw;
+}
+
+.footerIcon {
+  padding-inline: 10%;
+  filter: invert(98%) sepia(13%) saturate(512%) hue-rotate(144deg) brightness(108%) contrast(97%);
+}

@@ -13,6 +13,7 @@ import {
 } from '../services/API';
 import Search from './Header Components/Search';
 import Explore from './Header Components/Explore';
+import '../styles/Header.css';
 
 function Header() {
   const [searchClick, setSearchClick] = useState(false);
@@ -85,13 +86,20 @@ function Header() {
 
   return (
     <header>
-      <div>
-        <Link to="/perfil">
-          <div>
-            <img src={ profileIcon } alt="IconePerfil" data-testid="profile-top-btn" />
+      <div className="header">
+        <Link to="/perfil" className="explore">
+          <div className="explore">
+            <img
+              src={ profileIcon }
+              alt="IconePerfil"
+              data-testid="profile-top-btn"
+              className="headerImg"
+            />
           </div>
         </Link>
-        <h1 data-testid="page-title">{pageName}</h1>
+        <div className="explore">
+          <h1 data-testid="page-title" className="page-title">{pageName}</h1>
+        </div>
         <Explore
           showButton={ showButton }
           searchIcon={ searchIcon }

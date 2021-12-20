@@ -14,7 +14,7 @@ export default function FinishBtn(props) {
   };
 
   return (
-    <div>
+    <div className="finshBtnCont">
       <Link to="/receitas-feitas">
         <button
           data-testid="finish-recipe-btn"
@@ -23,7 +23,7 @@ export default function FinishBtn(props) {
           className="finishBtn"
           onClick={ () => handleDoneRecipes(type, details) }
         >
-          Finalizar Receita
+          Finish Recipe
         </button>
       </Link>
     </div>

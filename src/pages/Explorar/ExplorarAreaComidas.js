@@ -13,7 +13,7 @@ export default function ExplorarAreaComidas() {
   const MAX_CARD = 12;
 
   useEffect(() => {
-    setPageName('Explorar Origem');
+    setPageName('Explore Origin');
     setShowButton(true);
   }, [setPageName, setShowButton]);
 
@@ -57,7 +57,7 @@ export default function ExplorarAreaComidas() {
           ))}
         </select>
       </div>
-      <div className="explore-food">
+      <div className="recipeCardsDiv">
         {food.map((foods, index) => {
           if (index < MAX_CARD) {
             return (
@@ -65,14 +65,20 @@ export default function ExplorarAreaComidas() {
                 to={ `/comidas/${foods.idMeal}` }
                 key={ foods.idMeal }
                 data-testid={ `${index}-recipe-card` }
+                className="recipeCards" 
               >
-                <img
-                  src={ foods.strMealThumb }
-                  alt={ foods.strMeal }
-                  data-testid={ `${index}-card-img` }
-                  width="100px"
-                />
-                <h3 data-testid={ `${index}-card-name` }>{foods.strMeal}</h3>
+                <div className="imgCont">
+                  <img
+                    src={ foods.strMealThumb }
+                    alt={ foods.strMeal }
+                    data-testid={ `${index}-card-img` }
+                    width="100px"
+                    className="albumImg"
+                  />
+                </div>
+                <div className="infoCont">
+                  <p data-testid={ `${index}-card-name` }>{foods.strMeal}</p>
+                </div>
               </Link>
             );
           } return null;

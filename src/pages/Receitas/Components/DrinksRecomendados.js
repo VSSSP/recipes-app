@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MyContext from '../../../Context/index';
 import { getDrinkName } from '../../../services/API';
+import '../../../styles/Recipes.css';
 
 export default function DrinksRecomendados() {
   const MIN_LENGTH = 6;
@@ -22,7 +23,7 @@ export default function DrinksRecomendados() {
           <div
             key={ idDrink }
             data-testid={ `${index}-recomendation-card` }
-            className="item"
+            className="recipeCards"
           >
             <p data-testid={ `${index}-recomendation-title` }>{ strDrink }</p>
             <img
@@ -30,6 +31,7 @@ export default function DrinksRecomendados() {
               src={ strDrinkThumb }
               alt={ strDrink }
               width="150px"
+              className="albumImg"
             />
           </div>
         </Link>

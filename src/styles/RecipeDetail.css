@@ -1,0 +1,117 @@
+.recipeCont{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 127, 76, 0.781);
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.recipeHeader {
+  display: flex;
+  align-self: center;
+  justify-content: space-evenly;
+  padding: 5px;
+  background-color: rgba(255, 127, 76, 0.815);
+  width: 90vw;
+}
+
+.favBtn {
+ background-color: transparent;
+ border: transparent;
+ filter: invert(98%) sepia(13%) saturate(512%) hue-rotate(144deg) brightness(108%) contrast(97%);
+}
+
+.shareBtn {
+  background-color: transparent;
+  border: transparent;
+  filter: invert(98%) sepia(13%) saturate(512%) hue-rotate(144deg) brightness(108%) contrast(97%);
+}
+
+.recipeImg {
+  width: 100vw;
+  margin-top: -20%;
+}
+
+.recipeVideo {
+  align-content: center;
+  width: 95vw;
+  padding: 10px;
+}
+
+.shareLikeBtnCont {
+  align-self:baseline;
+  align-items: center;
+  display: flex;
+  justify-content:right;
+  width: 50vw;
+}
+
+.recipeTitleCont {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  align-items: start;
+  width: 50vw;
+}
+
+.ingredientCont {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  width: 90VW;
+  background-color: rgba(255, 127, 76, 0.815);
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.ingredientCheckCont {
+  width: 100VW;
+}
+
+.ingredientCheck {
+  margin-inline: 6%;
+  width: 90VW;
+  
+}
+
+.startBtn {
+  width: 100vw;
+  justify-self: start;
+  background-color: rgb(255, 102, 42);
+  border: transparent;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+}
+
+.finshBtnCont {
+  width: 100vw;
+}
+
+.finishBtn {
+  justify-self: center;
+  width: 100vw;
+  justify-self: start;
+  background-color: rgb(255, 102, 42);
+  border: black;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+}
+
+.videoCont {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+

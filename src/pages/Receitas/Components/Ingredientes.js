@@ -8,7 +8,7 @@ export default function Ingredientes({ recipeInfo }) {
 
   return (
     <div>
-      <h2>Ingredientes</h2>
+      <h2>Ingredients</h2>
       { recipeInfo.strAlcoholic
         ? <p data-testid="recipe-category">{recipeInfo.strAlcoholic}</p>
         : null }

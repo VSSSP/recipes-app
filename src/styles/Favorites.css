@@ -1,0 +1,53 @@
+.favCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favCard {
+  display: flex;
+  width: 90vw;
+  margin: 10px 0 ;
+  background-color: #E9730F;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.favText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.butons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.imgDiv {
+  border-right: 1px solid black;
+}
+
+.imgDiv img {
+  border-radius: 20px 0 0 20px;
+}
+
+.favText p {
+  margin: 0;
+}
+
+.hori {
+  color: white;
+}
+
+.recipeName {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}

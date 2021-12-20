@@ -24,6 +24,7 @@ export default function FavoriteButton({ detail, type }) {
       <button
         type="button"
         onClick={ () => handleFavoritesClick(type, detail, setIsFavorite) }
+        className='favBtn'
       >
         <img
           src={ isFavorite ? blackHeart : whiteHeart }

@@ -22,7 +22,7 @@ export default function Recomendadas() {
           <div
             key={ idMeal }
             data-testid={ `${index}-recomendation-card` }
-            className="item"
+            className="recipeCards"
           >
             <p data-testid={ `${index}-recomendation-title` }>{ strMeal }</p>
             <img
@@ -30,6 +30,7 @@ export default function Recomendadas() {
               src={ strMealThumb }
               alt={ strMeal }
               width="150px"
+              className="albumImg"
             />
           </div>
         </Link>
