@@ -8,7 +8,6 @@ export default function IngredientsCheckboxes(props) {
   const { setIngredientesChecked,
     setCheckeds, ingredientesChecked, recipeInfo, name } = props;
 
-  const [load, setLoad] = useState(false);
   const [click, setClick] = useState(false);
 
   useEffect(() => {
@@ -18,13 +17,6 @@ export default function IngredientsCheckboxes(props) {
       setClick(checkedIngredients);
     }
   }, [ingredientesChecked, name]);
-
-  useEffect(() => {
-    const UM_SEGUNDO = 1000;
-    setTimeout(() => {
-      setLoad(true);
-    }, UM_SEGUNDO);
-  }, []);
 
   const handleChange = () => {
     setCheckeds(document.querySelectorAll('.inputCheck:checked').length); // resolver aqui
@@ -48,8 +40,6 @@ export default function IngredientsCheckboxes(props) {
       }
     }
   };
-
-  if (!load) return <p>Loading...</p>;
 
   return (
     <input
