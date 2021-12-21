@@ -1,11 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import RenderFavorites from './Components/renderFavorites';
 import MyContext from '../../Context';
 import { getFavoriteRecipes } from '../../services/helpers/getFavorites';
-import shareIcon from '../../images/shareIcon.svg';
-import FavButton2 from './Components/FavButton2';
 import '../../styles/Favorites.css'
 
 export default function ReceitasFavoritas() {
@@ -13,7 +10,6 @@ export default function ReceitasFavoritas() {
   const [recipes, setRecipes] = useState([]);
   const [click, setClick] = useState(false);
   const [filterRecipes, setFilterRecipes] = useState([]);
-  const [copied, setCopied] = useState(false);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {

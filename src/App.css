@@ -33,3 +33,16 @@ html {
   align-items: center;
   justify-content: center;
 }
+
+.informe {
+  color: rgb(0, 0, 0);
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: rgb(255, 153, 0) 1px 1px;
+}
+
+@media screen and (max-width: 600px) {
+  .informe {
+    visibility: hidden;
+  }
+}

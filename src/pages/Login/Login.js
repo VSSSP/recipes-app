@@ -81,6 +81,7 @@ export default function Login() {
             </Link>
           </form>
         </div>
+            <p className="informe">Site desenvolvido para simular um aplicativo de smartphone. Para melhor experiência, recomenda-se o acesso pelo celular.</p>
       </div>
     </div>
   );
